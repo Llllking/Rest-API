@@ -1,10 +1,15 @@
 package com.ismail.webservices.restful_web_services.user;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+//A class that handles accessing User data
+@Component
 public class UserDaoService {
+
     private static List<User> users = new ArrayList<>();
 
     static {
@@ -22,6 +27,6 @@ public class UserDaoService {
     }
 
     public User findOne(int id){
-        return users.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
+        return users.stream().filter(user -> user.getId().equals(id)).findFirst().orElse(null);
     }
 }
