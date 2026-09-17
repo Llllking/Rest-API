@@ -1,15 +1,20 @@
 package com.ismail.webservices.restful_web_services.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 public class User {
+    @JsonIgnore
     private Integer id;
     @Size(min = 2, message = "name should be more than two characters")
+    @JsonProperty("user_name")
     private String name;
     @Past(message = "birth date should be in past")
+    @JsonProperty("birth_date")
     private LocalDate birthDate;
 
     public User(Integer id, String name, LocalDate birthDate) {
