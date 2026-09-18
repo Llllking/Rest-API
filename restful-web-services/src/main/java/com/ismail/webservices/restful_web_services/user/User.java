@@ -25,6 +25,7 @@ public class User {
     @Past(message = "birth date should be in past")
     private LocalDate birthDate;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Post> posts;
 
     public User(Integer id, String name, LocalDate birthDate) {
